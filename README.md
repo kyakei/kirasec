@@ -19,7 +19,6 @@ How to Contribute
 
 We encourage contributions of all forms. Here's how you can get started:
 
-    Reach Out: Message us on Discord to become a collaborator.
     Fork and Clone: Fork the repository, clone it locally, and start adding your content.
     Create a Pull Request: Submit your contributions through a pull request for review.
     Feedback and Merge: Our team will review your contributions, provide feedback, and merge them into the main repository.
