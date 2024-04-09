@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="3" master_id="0" name="Sqli" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1712679998" ts_lastsave="1712687433">
+  <node unique_id="3" master_id="0" name="SQLi" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="46" is_bold="1" foreground="#e01b24" ts_creation="1712679998" ts_lastsave="1712690926">
     <rich_text>
 </rich_text>
     <rich_text style="italic" scale="h1" foreground="#8ff0a4" weight="heavy">SQL Injection (SQLi) Notes</rich_text>
@@ -65,8 +65,8 @@ SQL Injection (SQLi) is a code injection technique used to manipulate or exploit
     <rich_text>: Used when the database does not return data to the user or when the results are not visible.
 ◇ </rich_text>
     <rich_text weight="heavy">Example</rich_text>
-    <rich_text>: </rich_text>
-    <rich_text family="monospace">TrackingId=xyz' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)&gt;3)='a'--</rich_text>
+    <rich_text> Error Based: </rich_text>
+    <rich_text family="monospace">TrackingId=xyz' AND SELECT( 'a' FROM users WHERE username='administrator' AND LENGTH(password)&gt;3)='a'--</rich_text>
     <rich_text>▪ This command checks if the length of the administrator's password is greater than 3.
 
 
