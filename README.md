@@ -2,5 +2,5 @@
 
 # Message me in the KiraSec Discord to become a collaborator. #
 #####################
-## Collabroators: ##
+## Collaborators: ##
 ### JackintheD    ####
