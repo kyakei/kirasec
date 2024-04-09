@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="3" master_id="0" name="Sqli" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1712679998" ts_lastsave="1712681554">
+  <node unique_id="3" master_id="0" name="Sqli" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1712679998" ts_lastsave="1712686781">
     <rich_text scale="h1">Everything SQLi 
 </rich_text>
     <rich_text>
+SQLI INjection
 
-
-nobody even knows	</rich_text>
+BE ready for whatver comes your way
+</rich_text>
   </node>
 </cherrytree>
