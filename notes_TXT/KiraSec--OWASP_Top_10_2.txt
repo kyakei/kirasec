@@ -1,7 +1,0 @@
-## OWASP Top 10
-Section for OWASp top 10 Vulns
-
-
-
-nobody even knows	
-
