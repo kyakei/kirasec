@@ -32,39 +32,14 @@ CherryTree is a versatile note-taking application that supports importing notes 
 
 ### Windows
 
-```plaintext
 1. Download the CherryTree installer from the [official CherryTree website](https://www.giuspen.com/cherrytree/).
 2. Run the installer and follow the on-screen instructions to complete the installation.
 3. Open CherryTree and use the 'Import' option under the 'File' menu to import the note file.
 
-Linux
+### Linux
 
 For Debian-based systems (like Ubuntu):
 
-bash
-
+```bash
 sudo apt-get update
 sudo apt-get install cherrytree
-
-For Red Hat-based systems (like Fedora):
-
-bash
-
-sudo dnf install cherrytree
-
-After installation, launch CherryTree and go to the 'File' menu to select 'Import' to import the note file.
-macOS
-
-plaintext
-
-1. Download the CherryTree DMG file from the [CherryTree website](https://www.giuspen.com/cherrytree/).
-2. Open the DMG file and drag CherryTree to your Applications folder.
-3. Open CherryTree from the Applications folder.
-4. Use the 'Import' feature under the 'File' menu to import the note file.
-
-Once you've imported the notes, you can easily navigate through the repository's content within CherryTree, taking advantage of its hierarchical note structure and powerful search features.
-
-python
-
-
-When you format markdown files, the `#` symbol is used to define headers. The more `#` s
