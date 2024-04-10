@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="7" master_id="0" name="XSS" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="24" is_bold="1" foreground="#865e3c" ts_creation="1712696289" ts_lastsave="1712707777">
+  <node unique_id="7" master_id="0" name="XSS" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="24" is_bold="1" foreground="#241f31" ts_creation="1712696289" ts_lastsave="1712715431">
     <rich_text>
 </rich_text>
     <rich_text scale="h1" foreground="#cdab8f">1. Reflected XSS Example</rich_text>

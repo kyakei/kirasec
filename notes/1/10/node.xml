@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="10" master_id="0" name="Shit Scripts" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="108" is_bold="1" foreground="#2ec27e" ts_creation="1712710443" ts_lastsave="1712710581">
+  <node unique_id="10" master_id="0" name="Shit Scripts" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="108" is_bold="1" foreground="#241f31" ts_creation="1712710443" ts_lastsave="1712715447">
     <rich_text>
 </rich_text>
     <rich_text scale="h1" foreground="#33d17a" weight="heavy">Auto-transfer</rich_text>

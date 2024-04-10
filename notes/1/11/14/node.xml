@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="14" master_id="0" name="Sudo Nginx" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="#e5a50a" ts_creation="1712712682" ts_lastsave="1712712697">
+  <node unique_id="14" master_id="0" name="Sudo Nginx" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="1" foreground="#000000" ts_creation="1712712682" ts_lastsave="1712713152">
     <rich_text>
 </rich_text>
     <rich_text style="italic" scale="h1" foreground="#865e3c">Exploiting Sudo Permissions with Nginx: Quick Summary</rich_text>
