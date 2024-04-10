@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node unique_id="16" master_id="0" name="Wfuzz" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="1" foreground="" ts_creation="1712713119" ts_lastsave="1712713160">
+    <rich_text> sudo wfuzz -c -f sub-fighter -w /usr/share/amass/wordlists/subdomains-top1mil-5000.txt -u "</rich_text>
+    <rich_text link="webs http://team.thm">http://team.thm</rich_text>
+    <rich_text>" -H "Host: FUZZ.team.thm" --hl 125
+</rich_text>
+  </node>
+</cherrytree>
