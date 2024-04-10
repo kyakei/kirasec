@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node unique_id="14" master_id="0" name="Sudo Nginx" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="#e5a50a" ts_creation="1712712682" ts_lastsave="1712712697">
+    <rich_text>
+</rich_text>
+    <rich_text style="italic" scale="h1" foreground="#865e3c">Exploiting Sudo Permissions with Nginx: Quick Summary</rich_text>
+    <rich_text>
+1. </rich_text>
+    <rich_text weight="heavy">Context</rich_text>
+    <rich_text>: User </rich_text>
+    <rich_text family="monospace">activemq</rich_text>
+    <rich_text> has </rich_text>
+    <rich_text family="monospace">sudo</rich_text>
+    <rich_text> privileges to run </rich_text>
+    <rich_text family="monospace">/usr/sbin/nginx</rich_text>
+    <rich_text> without a password.
+
+2. </rich_text>
+    <rich_text weight="heavy">Exploit Strategy</rich_text>
+    <rich_text>: Use </rich_text>
+    <rich_text family="monospace">sudo</rich_text>
+    <rich_text> access to configure and run </rich_text>
+    <rich_text family="monospace">nginx</rich_text>
+    <rich_text> as root, serving files from the system root directory.
+
+3. </rich_text>
+    <rich_text weight="heavy">Configuration Steps</rich_text>
+    <rich_text>:
+• Create an </rich_text>
+    <rich_text family="monospace">nginx</rich_text>
+    <rich_text> configuration file with </rich_text>
+    <rich_text family="monospace">root /;</rich_text>
+    <rich_text> to serve the entire filesystem.
+• Start </rich_text>
+    <rich_text family="monospace">nginx</rich_text>
+    <rich_text> with </rich_text>
+    <rich_text family="monospace">sudo</rich_text>
+    <rich_text> using the custom config file.
+
+
+• </rich_text>
+    <rich_text weight="heavy">Access Files</rich_text>
+    <rich_text>:
+◇ Use </rich_text>
+    <rich_text family="monospace">curl</rich_text>
+    <rich_text> to access sensitive files like </rich_text>
+    <rich_text family="monospace">/etc/shadow</rich_text>
+    <rich_text> or other critical files served by the malicious </rich_text>
+    <rich_text family="monospace">nginx</rich_text>
+    <rich_text> instance.
+
+This process highlights the risks associated with granting excessive sudo privileges and the importance of secure configuration practices.
+
+
+
+</rich_text>
+  </node>
+</cherrytree>

