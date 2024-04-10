@@ -1,0 +1,24 @@
+### XSS
+
+1. Reflected XSS Example
+• Command: <script>alert('XSS');</script>
+• Injection Point: A URL parameter that is reflected back in the webpage without sanitization.
+• Example Scenario: A search function on a website where the search term is reflected in the results page.◇ User visits: https://example.com/search?query=<script>alert('XSS');</script>
+◇ The search results page reflects the query in the HTML response: <p>Your search results for: <script>alert('XSS');</script></p>
+
+
+
+2. Stored XSS Example
+◇ Command: <script>alert('XSS');</script>
+◇ Injection Point: A user input field that stores data in the database and is later displayed on the website without proper encoding.
+◇ Example Scenario: A comment section on a blog post where comments are displayed to all readers.▪ User submits a comment: <script>alert('XSS');</script>
+▪ The comment is stored in the database and displayed to every visitor, executing the script in their browsers.
+
+3. DOM XSS Example
+◇ Command: <img src="invalid-image" onerror="alert('XSS');">
+◇ Injection Point: JavaScript that writes user input directly to the DOM without proper sanitization.
+◇ Example Scenario: A website with a search functionality that dynamically updates the page content based on user input.▪ User enters a search term: <img src="invalid-image" onerror="alert('XSS');">
+▪ The website's JavaScript takes this input and dynamically updates the DOM: document.getElementById('results').innerHTML = 'You searched for: ' + userInput;
+▪ The malicious code is executed when the invalid image fails to load.
+
+

