@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node unique_id="7" master_id="0" name="XSS" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="24" is_bold="1" foreground="#865e3c" ts_creation="1712696289" ts_lastsave="1712707777">
+    <rich_text>
+</rich_text>
+    <rich_text scale="h1" foreground="#cdab8f">1. Reflected XSS Example</rich_text>
+    <rich_text>
+• </rich_text>
+    <rich_text weight="heavy">Command</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">&lt;script&gt;alert('XSS');&lt;/script&gt;</rich_text>
+    <rich_text>
+• </rich_text>
+    <rich_text weight="heavy">Injection Point</rich_text>
+    <rich_text>: A URL parameter that is reflected back in the webpage without sanitization.
+• </rich_text>
+    <rich_text weight="heavy">Example Scenario</rich_text>
+    <rich_text>: A search function on a website where the search term is reflected in the results page.◇ User visits: </rich_text>
+    <rich_text family="monospace">https://example.com/search?query=&lt;script&gt;alert('XSS');&lt;/script&gt;</rich_text>
+    <rich_text>
+◇ The search results page reflects the query in the HTML response: </rich_text>
+    <rich_text family="monospace">&lt;p&gt;Your search results for: &lt;script&gt;alert('XSS');&lt;/script&gt;&lt;/p&gt;</rich_text>
+    <rich_text>
+
+
+
+</rich_text>
+    <rich_text scale="h1" foreground="#cdab8f">2. Stored XSS Example</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Command</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">&lt;script&gt;alert('XSS');&lt;/script&gt;</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Injection Point</rich_text>
+    <rich_text>: A user input field that stores data in the database and is later displayed on the website without proper encoding.
+◇ </rich_text>
+    <rich_text weight="heavy">Example Scenario</rich_text>
+    <rich_text>: A comment section on a blog post where comments are displayed to all readers.▪ User submits a comment: </rich_text>
+    <rich_text family="monospace">&lt;script&gt;alert('XSS');&lt;/script&gt;</rich_text>
+    <rich_text>
+▪ The comment is stored in the database and displayed to every visitor, executing the script in their browsers.
+
+</rich_text>
+    <rich_text scale="h1" foreground="#cdab8f">3. DOM XSS Example</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Command</rich_text>
+    <rich_text>: </rich_text>
+    <rich_text family="monospace">&lt;img src="invalid-image" onerror="alert('XSS');"&gt;</rich_text>
+    <rich_text>
+◇ </rich_text>
+    <rich_text weight="heavy">Injection Point</rich_text>
+    <rich_text>: JavaScript that writes user input directly to the DOM without proper sanitization.
+◇ </rich_text>
+    <rich_text weight="heavy">Example Scenario</rich_text>
+    <rich_text>: A website with a search functionality that dynamically updates the page content based on user input.▪ User enters a search term: </rich_text>
+    <rich_text family="monospace">&lt;img src="invalid-image" onerror="alert('XSS');"&gt;</rich_text>
+    <rich_text>
+▪ The website's JavaScript takes this input and dynamically updates the DOM: </rich_text>
+    <rich_text family="monospace">document.getElementById('results').innerHTML = 'You searched for: ' + userInput;</rich_text>
+    <rich_text>
+▪ The malicious code is executed when the invalid image fails to load.
+</rich_text>
+  </node>
+</cherrytree>

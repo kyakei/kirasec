@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cherrytree>
-  <node unique_id="3" master_id="0" name="SQLi" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="46" is_bold="1" foreground="#e01b24" ts_creation="1712679998" ts_lastsave="1712691368">
+  <node unique_id="3" master_id="0" name="SQLi" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="46" is_bold="1" foreground="#63452c" ts_creation="1712679998" ts_lastsave="1712706666">
     <rich_text>
 </rich_text>
     <rich_text style="italic" scale="h1" foreground="#8ff0a4" weight="heavy">SQL Injection (SQLi) Notes</rich_text>
