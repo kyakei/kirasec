@@ -43,11 +43,3 @@ For Debian-based systems (like Ubuntu):
 ```bash
 sudo apt-get update
 sudo apt-get install cherrytree 
-
-
-macOS
-
-    Download the CherryTree DMG file from the CherryTree website.
-    Open the DMG file and drag CherryTree to your Applications folder.
-    Open CherryTree from the Applications folder.
-    Use the 'Import' feature under the 'File' menu to import the note file.
