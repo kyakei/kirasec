@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <node unique_id="9" master_id="0" name="Quick Wins" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="239" is_bold="1" foreground="#000000" ts_creation="1712707831" ts_lastsave="1712708863">
+    <rich_text>	</rich_text>
+    <rich_text style="italic">	</rich_text>
+    <rich_text style="italic" scale="h1" foreground="#cdab8f" weight="heavy">Quick Wins</rich_text>
+    <rich_text>
+	</rich_text>
+    <rich_text style="italic" weight="heavy">Fastest Way Only</rich_text>
+    <rich_text>
+</rich_text>
+    <rich_text justification="left"></rich_text>
+    <codebox char_offset="31" justification="left" frame_width="90" frame_height="100" width_in_pixels="0" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -4000 -type f 2&gt;/dev/null
+find / -perm -2000 -type f 2&gt;/dev/null
+id
+whoami
+sudo -l
+crontab -l
+ls -al /etc/cron*
+cat /etc/crontab
+find / -type f -perm -o=w 2&gt;/dev/null
+find / -type d -perm -o=w 2&gt;/dev/null
+cat ~/.bash_history
+cat ~/.nano_history
+cat ~/.mysql_history
+ps aux
+dpkg -l  # For Debian/Ubuntu
+rpm -qa  # For CentOS/RHEL
+ifconfig
+ip addr
+netstat -tuln
+ss -tuln
+netstat -tuln
+ss -tuln
+find / -name id_rsa 2&gt;/dev/null
+find / -name "*.conf" 2&gt;/dev/null
+grep -Ri pass /etc 2&gt;/dev/null
+mount
+df -h
+cat /etc/passwd
+cat /etc/shadow 2&gt;/dev/null
+find / -user root -perm -o=r 2&gt;/dev/null
+cat /etc/fstab
+</codebox>
+  </node>
+</cherrytree>
